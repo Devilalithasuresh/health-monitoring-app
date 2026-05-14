@@ -94,6 +94,8 @@ const UserDashboard = () => {
         <ul>
           <li className="active">Dashboard</li>
           <li onClick={fetchHospitalData}>Refresh</li>
+          <li onClick={() => navigate("/outbreak-map")}>Outbreak Map</li>
+          <li onClick={() => navigate("/disease-info")}>Disease Info & AI</li>
           <li onClick={logout}>Logout</li>
         </ul>
       </aside>

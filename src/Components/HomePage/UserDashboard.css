@@ -107,11 +107,9 @@
   height: 160px;
   margin: 20px auto;
   border-radius: 50%;
-  background: conic-gradient(
-    #00e5ff 0% 35%,
-    #007bff 35% 65%,
-    #8ab4f8 65% 100%
-  );
+  background: conic-gradient(#00e5ff 0% 35%,
+      #007bff 35% 65%,
+      #8ab4f8 65% 100%);
 }
 
 .legend p {
@@ -165,11 +163,13 @@ tr {
   }
 
   .stats-grid {
-    grid-template-columns: 1fr; /* stack cards */
+    grid-template-columns: 1fr;
+    /* stack cards */
   }
 
   .charts-grid {
-    grid-template-columns: 1fr; /* stack charts */
+    grid-template-columns: 1fr;
+    /* stack charts */
   }
 
   .chart-card {
@@ -180,7 +180,8 @@ tr {
     font-size: 12px;
   }
 
-  th, td {
+  th,
+  td {
     padding: 8px;
   }
 }

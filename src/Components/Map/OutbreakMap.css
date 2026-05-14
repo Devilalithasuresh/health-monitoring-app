@@ -1,0 +1,139 @@
+/* src/Components/Map/OutbreakMap.css */
+
+.map-dashboard-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.main-map {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.map-header p {
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
+.map-view-container {
+  flex: 1;
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.map-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  color: var(--accent-cyan);
+}
+
+.map-loader .spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--glass-border);
+  border-top-color: var(--accent-cyan);
+  border-radius: 50%;
+  animation: map-spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes map-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Customizes Leaflet popup to fit dark theme if possible, but Map tiles will still be light */
+.custom-popup .leaflet-popup-content-wrapper {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border-light);
+  border-radius: 10px;
+}
+.custom-popup .leaflet-popup-tip {
+  background: var(--bg-dark);
+  border: 1px solid var(--glass-border-light);
+}
+
+.map-popup-inner {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+}
+
+.map-popup-inner h3 {
+  margin: 0 0 10px 0;
+  color: var(--accent-cyan);
+  font-size: 1.1rem;
+}
+
+.zone-status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.risk-red {
+  background-color: rgba(255, 77, 77, 0.2);
+  color: #ff4d4d;
+  border: 1px solid rgba(255, 77, 77, 0.4);
+}
+
+.risk-orange {
+  background-color: rgba(255, 166, 77, 0.2);
+  color: #ffa64d;
+  border: 1px solid rgba(255, 166, 77, 0.4);
+}
+
+.risk-yellow {
+  background-color: rgba(255, 255, 77, 0.2);
+  color: #ffff4d;
+  border: 1px solid rgba(255, 255, 77, 0.4);
+}
+
+.total-cases {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.disease-breakdown h4 {
+  margin: 0 0 8px 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.disease-breakdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.disease-breakdown li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 3px;
+}
+
+.disease-breakdown li span {
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
