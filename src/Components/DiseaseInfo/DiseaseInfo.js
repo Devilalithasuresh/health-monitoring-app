@@ -63,7 +63,7 @@ const DiseaseInfo = () => {
         <h2>🏥 Smart Health</h2>
         <ul>
           <li onClick={() => navigate("/dashboard")}>User Dashboard</li>
-          <li onClick={() => navigate("/admin-dashboard")}>Admin Dashboard</li>
+
           <li onClick={() => navigate("/outbreak-map")}>Outbreak Map</li>
           <li className="active">Disease AI & Info</li>
         </ul>

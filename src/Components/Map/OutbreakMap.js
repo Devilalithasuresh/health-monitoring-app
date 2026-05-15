@@ -56,7 +56,8 @@ const OutbreakMap = () => {
 
       const dName = row.disease || "Unknown";
       aggregated[loc].diseases[dName] =
-        (aggregated[loc].diseases[dName] || 0) + Number(row.admitted_cases || 0);
+        (aggregated[loc].diseases[dName] || 0) +
+        Number(row.admitted_cases || 0);
     });
 
     const mapDataPoints = [];
@@ -82,8 +83,11 @@ const OutbreakMap = () => {
 
   let initialCenter = [20, 0];
   let initialZoom = 2;
+
   if (!loading && locationsData.length > 0) {
-    const maxLoc = locationsData.reduce((prev, curr) => (prev.totalCases > curr.totalCases) ? prev : curr);
+    const maxLoc = locationsData.reduce((prev, curr) =>
+      prev.totalCases > curr.totalCases ? prev : curr
+    );
     initialCenter = maxLoc.coordinates;
     initialZoom = 8;
   }
@@ -94,7 +98,6 @@ const OutbreakMap = () => {
         <h2>🏥 Smart Health</h2>
         <ul>
           <li onClick={() => navigate("/dashboard")}>User Dashboard</li>
-          <li onClick={() => navigate("/admin-dashboard")}>Admin Dashboard</li>
           <li className="active" onClick={fetchOutbreakData}>
             Outbreak Map (Refresh)
           </li>
@@ -120,27 +123,32 @@ const OutbreakMap = () => {
             <MapContainer
               center={initialCenter}
               zoom={initialZoom}
-              style={{ height: "100%", width: "100%", borderRadius: "10px" }}
+              style={{
+                height: "100%",
+                width: "100%",
+                borderRadius: "10px",
+              }}
             >
               <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               />
+
               {locationsData.map((loc, idx) => {
                 let color, radius, zoneClass, zoneText;
 
                 if (loc.totalCases > 500) {
-                  color = "#ff4d4d"; // Red
+                  color = "#ff4d4d";
                   radius = 35;
                   zoneClass = "risk-red";
                   zoneText = "High Outbreak (Red Zone)";
                 } else if (loc.totalCases > 250) {
-                  color = "#ffa64d"; // Orange
+                  color = "#ffa64d";
                   radius = 25;
                   zoneClass = "risk-orange";
                   zoneText = "Moderate Outbreak (Orange Zone)";
                 } else {
-                  color = "#ffff4d"; // Yellow
+                  color = "#ffff4d";
                   radius = 15;
                   zoneClass = "risk-yellow";
                   zoneText = "Warning Area (Yellow Zone)";
@@ -162,12 +170,15 @@ const OutbreakMap = () => {
                         <h3 style={{ textTransform: "capitalize" }}>
                           {loc.location}
                         </h3>
+
                         <div className={`zone-status ${zoneClass}`}>
                           {zoneText}
                         </div>
+
                         <p className="total-cases">
                           <strong>Total Cases:</strong> {loc.totalCases}
                         </p>
+
                         <div className="disease-breakdown">
                           <h4>Breakdown:</h4>
                           <ul>
